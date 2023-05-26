@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "@vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "vue-cli-service lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
@@ -22,7 +28,8 @@
     "util": "^0.12.5",
     "vue": "^3.3.2",
     "vue-router": "^4.1.6",
-    "vuex": "^4.1.0"
+    "vuex": "^4.1.0",
+    "yorkie": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
