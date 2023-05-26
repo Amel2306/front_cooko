@@ -20,10 +20,7 @@ export default createStore({
     async updateUser({ commit }, updatedUser) {
       try {
         const userId = updatedUser.id;
-        const response = await axios.put(
-          `http://localhost:4000/users/${userId}`,
-          updatedUser
-        );
+        const response = await axios.put(`/users/${userId}`, updatedUser);
         const updatedUserData = response.data; // Supposons que le serveur renvoie les informations utilisateur mises à jour après la modification
 
         commit("SET_USER", updatedUserData);

@@ -41,9 +41,7 @@ export default {
       console.log(this.recettes);
 
       for (const recette of this.recettes) {
-        const imageResponse = await axios.get(
-          `http://localhost:4000/recettes/${recette.id}/image`
-        );
+        const imageResponse = await axios.get(`/recettes/${recette.id}/image`);
         const imageName = imageResponse.data[0].filename;
         const domain = "/Images/";
         const imageUrl = domain + imageName;
@@ -85,7 +83,7 @@ export default {
             recetteId: recette.id,
           };
           const resCard = await axios.put(
-            `http://localhost:4000/users/${this.user.id}/panier`,
+            `/users/${this.user.id}/panier`,
             data
           );
           console.log(resCard);
