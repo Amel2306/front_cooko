@@ -25,8 +25,9 @@ export default {
 <style>
 body {
   width: 1400px;
+  justify-content: center;
   padding-top: 100px;
-  padding-left: 220px;
+  //padding-left: 220px;
 }
 .a {
   margin-top: 40px;
