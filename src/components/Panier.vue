@@ -20,6 +20,27 @@
       </div>
     </div>
   </div>
+  <hr class="separator" />
+  <div v-if="afficherIngr" class="IngAfficher">
+    <h3 class="MesIngredients">Mes ingredients pour faire ces recettes :</h3>
+    <div v-for="cat in mesIngredients" class="ingredients" :key="cat">
+      <hr class="separator" />
+      <h5 class="NomCat">{{ cat[0].categorie }}</h5>
+      <ul v-for="ing in cat" class="IngParCat" :key="ing">
+        <li>
+          {{ ing.nom }} : {{ ing.quantite }}
+          {{ ing.uniteQte }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <button
+    v-if="user"
+    class="btn"
+    @click="afficherIngr ? (afficherIngr = false) : (afficherIngr = true)"
+  >
+    Mes ingrédients
+  </button>
 </template>
 
 <script>
@@ -36,6 +57,9 @@ export default {
       panier: JSON.parse(localStorage.getItem("panier")),
       recetteNoms: {},
       images: {},
+      mesIngredients: {},
+      nomCatégorie: {},
+      afficherIngr: false,
     };
   },
   async mounted() {
@@ -55,6 +79,11 @@ export default {
           const imageUrl = domain + imageName;
           this.images[rec.recetteId] = imageUrl;
         }
+        const ingredientsRes = await axios.get(
+          `users/${this.user.id}/panier/ingredients`
+        );
+        console.log(ingredientsRes.data);
+        this.mesIngredients = ingredientsRes.data;
       } catch (err) {
         console.log(err);
       }
@@ -104,6 +133,9 @@ export default {
 </script>
 
 <style>
+body {
+  padding-bottom: 20px;
+}
 .imgPan {
   width: 300px;
   height: 300px;
