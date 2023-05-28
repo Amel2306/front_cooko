@@ -44,7 +44,11 @@ export default {
 </script>
 
 <style>
+* {
+  justify-content: center;
+}
 body {
+  justify-content: center;
   background-color: antiquewhite;
 }
 
