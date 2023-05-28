@@ -8,6 +8,7 @@ import RecetteDetails from "@/components/RecetteDetails.vue";
 import PanierRecette from "@/components/Panier.vue";
 import Parametres from "@/components/Parametres.vue";
 import UsersComponent from "@/components/Users.vue";
+import RecettesFiltre from "../components/RecettesFiltre.vue";
 const routes = [
   {
     path: "/",
@@ -39,6 +40,11 @@ const routes = [
     path: "/recettes/:id",
     name: "recette-details",
     component: RecetteDetails,
+  },
+  {
+    path: "/recettesfiltre/:categorie",
+    name: "recettes-filtre",
+    component: RecettesFiltre,
   },
   {
     path: "/panier",

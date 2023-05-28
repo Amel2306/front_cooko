@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Liste des recettes</h1>
+    <h1>{{ this.categorie }}</h1>
     <div class="card-container">
       <div
         v-for="recette in recettes"
@@ -24,14 +24,14 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
-
 export default {
-  name: "RecetteComponent",
+  name: "RecetteFiltre",
   data() {
     return {
       recettes: [],
       images: {},
       quantites: {},
+      categorie: "",
     };
   },
   computed: {
@@ -39,10 +39,9 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get("/recettes");
+      this.categorie = this.$route.params.categorie;
+      const response = await axios.get(`typerecettes/${this.categorie}`);
       this.recettes = response.data;
-      console.log(this.recettes);
-
       for (const recette of this.recettes) {
         const imageResponse = await axios.get(`/recettes/${recette.id}/image`);
         const imageName = imageResponse.data[0].filename;
@@ -88,107 +87,3 @@ export default {
   },
 };
 </script>
-
-<style>
-body {
-  justify-content: center;
-  padding-left: 40px;
-  padding-right: 40px;
-}
-/*@media (max-width: 700px) {
-  .card-container {
-    flex-wrap: nowrap;
-    flex-direction: column;
-  }
-}*/
-.card .plus {
-  flex-direction: row;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: #daa06d;
-  font-size: 0.8em;
-  font-weight: 700;
-  transition: ease-out 0.5s;
-  cursor: pointer;
-  border: 2px solid #daa06d;
-  border-radius: 10px;
-  background-color: transparent;
-  width: 40px;
-}
-
-.card p {
-  position: absolute;
-  bottom: -5px;
-  left: 65px;
-  color: #daa06d;
-  font-size: 16px;
-  font-weight: 700;
-  margin-left: 40px;
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: row;
-}
-
-.card {
-  width: 300px;
-  height: 300px;
-  box-shadow: 0 10px 10px #eaddca;
-  background: #eaddca;
-  ::display: flex;
-  border-radius: 20px;
-  justify-content: center;
-  ::position: relative;
-  transition: all 0.4s;
-  border: transparent;
-  margin: 30px;
-  margin-top: 50px;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-}
-
-.card div {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.212);
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.4s;
-  background-color: #eaddca;
-}
-
-.card:hover div {
-  transform: translateY(-60px);
-  color: #eaddca;
-}
-
-.plus:hover {
-  color: antiquewhite;
-  box-shadow: inset 0 -100px 0 0 #daa06d;
-}
-
-.plus:active {
-  color: #daa06d;
-  transform: scale(0.9);
-}
-
-/*@media (max-width: 900px) {
-  .card-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    margin: 30px 0;
-  }
-}*/
-</style>

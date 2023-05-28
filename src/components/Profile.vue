@@ -28,7 +28,6 @@
     </div>
 
     <button class="btn" @click="saveChanges">Enregistrer</button>
-    <button class="btn" @click="cancelChanges">Annuler</button>
   </div>
 </template>
 
@@ -86,11 +85,6 @@ export default {
           error
         );
       }
-    },
-    cancelChanges() {
-      // Réinitialiser les champs de formulaire avec les valeurs de l'utilisateur actuel
-      this.editedUser.nom = this.user.nom;
-      this.editedUser.prenom = this.user.prenom;
     },
   },
 };
