@@ -362,6 +362,11 @@ export default {
 }
 .fav:hover {
   background-color: transparent;
+  color: #ecbe9f;
+}
+.fav:active {
+  background-color: transparent;
+  color: #ecbe9f;
 }
 .radio {
   margin-left: 20px;
