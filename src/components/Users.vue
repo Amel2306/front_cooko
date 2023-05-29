@@ -6,7 +6,7 @@
       <p>Email : {{ user.email }}</p>
       <p>Identifiant : {{ user.id }}</p>
       <button type="reset" class="btn" @click="suppUser(user)">
-        Supprimer
+        <font-awesome-icon icon="fa-solid fa-trash-can" />
       </button>
     </div>
   </div>

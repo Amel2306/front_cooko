@@ -10,6 +10,8 @@ import Parametres from "@/components/Parametres.vue";
 import UsersComponent from "@/components/Users.vue";
 import RecettesFiltre from "../components/RecettesFiltre.vue";
 import RecetteFiltreIngredient from "@/components/RecetteFiltreIngredient.vue";
+import RecettePara from "@/components/RecettesPara.vue";
+
 const routes = [
   {
     path: "/",
@@ -66,6 +68,11 @@ const routes = [
     path: "/parametres/users",
     name: "users",
     component: UsersComponent,
+  },
+  {
+    path: "/parametres/recettes",
+    name: "recettespara",
+    component: RecettePara,
   },
 ];
 

@@ -6,7 +6,7 @@
       >
     </button>
     <button class="btn">
-      <router-link to="/parametres/users" class="navbar-brand">
+      <router-link to="/parametres/recettes" class="navbar-brand">
         Gestion Recettes</router-link
       >
     </button>
