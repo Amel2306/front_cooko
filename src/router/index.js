@@ -9,6 +9,7 @@ import PanierRecette from "@/components/Panier.vue";
 import Parametres from "@/components/Parametres.vue";
 import UsersComponent from "@/components/Users.vue";
 import RecettesFiltre from "../components/RecettesFiltre.vue";
+import RecetteFiltreIngredient from "@/components/RecetteFiltreIngredient.vue";
 const routes = [
   {
     path: "/",
@@ -45,6 +46,11 @@ const routes = [
     path: "/recettesfiltre/:categorie",
     name: "recettes-filtre",
     component: RecettesFiltre,
+  },
+  {
+    path: "/recettesfiltreingr/:typeIngredients",
+    name: "recettes-filtre-ing",
+    component: RecetteFiltreIngredient,
   },
   {
     path: "/panier",

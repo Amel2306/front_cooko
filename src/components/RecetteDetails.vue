@@ -31,8 +31,8 @@
     <div class="commentaire" v-for="com in commentaires" :key="com">
       <div class="affiche">
         <div class="utilisateur">
-          <p class="nom">{{ users_nom[com.userId].nom }}</p>
-          <p class="prenom">{{ users_nom[com.userId].prenom }}</p>
+          <p class="nom">{{ com.nomUser }}</p>
+          <p class="prenom">{{ com.prenomUser }}</p>
         </div>
         <p class="contenu">{{ com.contenu }}</p>
         <p class="note">
@@ -208,12 +208,6 @@ export default {
       const res_comm = await axios.get(`recettes/${recetteId}/commentaire`);
       this.commentaires = res_comm.data;
       console.log(this.commentaires);
-      for (const com of this.commentaires) {
-        const res_name_user_com = await axios.get(`users/${com.userId}`);
-        if (res_name_user_com.data.nom && res_name_user_com.data.nom) {
-          this.users_nom[com.userId] = res_name_user_com.data;
-        }
-      }
     } catch (error) {
       console.log(error);
     }
@@ -340,7 +334,7 @@ export default {
 }
 
 .contenu {
-  background-color: white;
+  //background-color: white;
   border-radius: 40px;
   width: 600px;
   height: 100px;

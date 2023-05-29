@@ -20,7 +20,30 @@
                 <li @click="filtrerParCategorie('Dessert')"><a>Dessert</a></li>
               </ul>
             </li>
-
+            <li class="services">
+              <a href="/">Type ingredient </a>
+              <!-- DROPDOWN MENU -->
+              <ul class="dropdown">
+                <li @click="filtrerParIngredient('Légume')"><a>Légume</a></li>
+                <li @click="filtrerParIngredient('Fruit')"><a>Fruit</a></li>
+                <li @click="filtrerParIngredient('Boulangerie')">
+                  <a>Boulangerie</a>
+                </li>
+                <li @click="filtrerParIngredient('Pâte')"><a>Pâte</a></li>
+                <li @click="filtrerParIngredient('Produit Laitier')">
+                  <a>Produit Laitier</a>
+                </li>
+                <li @click="filtrerParIngredient('Viande')"><a>Viande</a></li>
+                <li @click="filtrerParIngredient('Farine Semoule')">
+                  <a>Farine Semoule</a>
+                </li>
+                <li @click="filtrerParIngredient('Matière grasse')">
+                  <a>Matière grasse</a>
+                </li>
+                <li @click="filtrerParIngredient('Épices')"><a>Épices</a></li>
+                <li @click="filtrerParIngredient('Autre')"><a>Autre</a></li>
+              </ul>
+            </li>
             <li>
               <router-link to="/login" class="nav-link"
                 >Se connecter</router-link
@@ -45,6 +68,30 @@
                 <li @click="filtrerParCategorie('Entrée')"><a>Entrée</a></li>
                 <li @click="filtrerParCategorie('Plat')"><a>Plat</a></li>
                 <li @click="filtrerParCategorie('Dessert')"><a>Dessert</a></li>
+              </ul>
+            </li>
+            <li class="services">
+              <a href="/">Type ingredient </a>
+              <!-- DROPDOWN MENU -->
+              <ul class="dropdown">
+                <li @click="filtrerParIngredient('Légume')"><a>Légume</a></li>
+                <li @click="filtrerParIngredient('Fruit')"><a>Fruit</a></li>
+                <li @click="filtrerParIngredient('Boulangerie')">
+                  <a>Boulangerie</a>
+                </li>
+                <li @click="filtrerParIngredient('Pâte')"><a>Pâte</a></li>
+                <li @click="filtrerParIngredient('Produit Laitier')">
+                  <a>Produit Laitier</a>
+                </li>
+                <li @click="filtrerParIngredient('Viande')"><a>Viande</a></li>
+                <li @click="filtrerParIngredient('Farine Semoule')">
+                  <a>Farine Semoule</a>
+                </li>
+                <li @click="filtrerParIngredient('Matière grasse')">
+                  <a>Matière grasse</a>
+                </li>
+                <li @click="filtrerParIngredient('Épices')"><a>Épices</a></li>
+                <li @click="filtrerParIngredient('Autre')"><a>Autre</a></li>
               </ul>
             </li>
             <li>
@@ -91,6 +138,9 @@ export default {
     filtrerParCategorie(categorie) {
       this.$router.push(`/recettesfiltre/${categorie}`);
     },
+    filtrerParIngredient(typeIngredients) {
+      this.$router.push(`/recettesfiltreingr/${typeIngredients}`);
+    },
   },
   computed: {
     ...mapGetters(["user"]),
@@ -119,11 +169,12 @@ li {
   position: absolute;
   top: 100%;
   left: 2px;
-  z-index: 1;
+  //z-index: 1;
   width: 140px;
   padding: 10px 0;
   background-color: #f3d9b1;
   border-radius: 5px;
+  z-index: 9999;
 }
 
 .dropdown li {
@@ -151,6 +202,10 @@ li {
 }
 
 .nav-links a {
+  color: #e5aa70;
+}
+
+.nav-links {
   color: #e5aa70;
 }
 
@@ -219,52 +274,6 @@ input[type="checkbox"] {
   font-size: 24px;
   user-select: none;
 }
-
-/*@media (max-width: 700px) {
-  .menu {
-    display: none;
-    position: absolute;
-    background-color: antiquewhite;
-    right: 50px;
-    top: 100%;
-    text-align: center;
-    padding: 16px 0;
-    width: 100%;
-  }
-
-  .menu li:hover {
-    display: inline-block;
-    background-color: antiquewhite;
-    transition: 0.3s ease;
-  }
-
-  .menu li + li {
-    margin-top: 12px;
-  }
-
-  input[type="checkbox"]:checked ~ .menu {
-    display: block;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .dropdown {
-    left: 50%;
-    top: 30px;
-    transform: translateX(15%);
-  }
-
-  .dropdown li:hover {
-    background-color: antiquewhite;
-  }
-  .services:hover .dropdown {
-    display: block;
-    position: static;
-  }
-}
-/* Ajoute une marge droite à la marque de navigation pour la déplacer légèrement vers la gauche */
 body {
   color: #e5aa70;
   background-color: antiquewhite;
@@ -281,39 +290,6 @@ body {
 .services {
   padding-right: 800px;
 }
-
-/*.navbar-brand {
-  margin: 0;
-  padding: 0 15px;
-  font-size: 18px;
-  line-height: 80px;
-}
-
-.navbar-nav {
-  display: inline-flex;
-  align-items: center;
-}
-
-.navbar-items {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  align-self: center;
-}
-
-.nav-item {
-  margin-left: 1px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #e5aa70;
-}
-
-.nav-link:hover {
-  color: #e5b48b;
-}*/
 .iconCook {
   width: 35%;
   height: 35%;
