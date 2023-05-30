@@ -34,7 +34,7 @@
           <p class="nom">{{ com.nomUser }}</p>
           <p class="prenom">{{ com.prenomUser }}</p>
         </div>
-        <p class="contenu">{{ com.contenu }}</p>
+        <p class="contenuu">{{ com.contenu }}</p>
         <p class="note">
           {{ com.note }}
           <font-awesome-icon icon="fa-solid fa-star" size="lg" class="etoile" />
@@ -333,7 +333,7 @@ export default {
   margin-left: 20px;
 }
 
-.contenu {
+/*.contenuu {
   //background-color: white;
   border-radius: 40px;
   width: 600px;
@@ -344,7 +344,7 @@ export default {
   margin-left: 150px;
   padding-top: 10px;
   border: solid #e5aa70 5px;
-}
+}*/
 
 .note {
   margin-right: 30px;
